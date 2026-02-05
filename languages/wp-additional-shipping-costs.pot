@@ -1,0 +1,89 @@
+# Copyright (C) 2026 fondly.cz<spoluprace@fondly.cz>
+# This file is distributed under the same license as the Additional Shipping Costs plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Additional Shipping Costs 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-additional-shipping-costs\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-05T12:14:10+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-additional-shipping-costs\n"
+
+#. Plugin Name of the plugin
+#: wp-additional-shipping-costs.php
+#: wp-additional-shipping-costs.php:43
+msgid "Additional Shipping Costs"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: wp-additional-shipping-costs.php
+msgid "https://github.com/fondly-cz/wp-additional-shipping-costs"
+msgstr ""
+
+#. Description of the plugin
+#: wp-additional-shipping-costs.php
+msgid "Add specific extra costs per shipping class and method."
+msgstr ""
+
+#. Author of the plugin
+#: wp-additional-shipping-costs.php
+msgid "fondly.cz<spoluprace@fondly.cz>"
+msgstr ""
+
+#. Author URI of the plugin
+#: wp-additional-shipping-costs.php
+msgid "https://www.fondly.cz"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:44
+msgid "Shipping Costs"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:65
+msgid "WooCommerce is not active."
+msgstr ""
+
+#: wp-additional-shipping-costs.php:79
+msgid "Additional Shipping Costs Configuration"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:90
+msgid "Tax Setting"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:95
+msgid "The prices entered below include tax"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:98
+msgid "If checked, we will calculate the net amount before adding to the shipping cost, based on standard shipping tax rates."
+msgstr ""
+
+#: wp-additional-shipping-costs.php:106
+msgid "Cost Matrix"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:112
+msgid "No shipping classes found in WooCommerce. Please create some shipping classes first."
+msgstr ""
+
+#: wp-additional-shipping-costs.php:120
+msgid "Shipping Method / Class"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:148
+msgid "Options"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:160
+msgid "Add per piece"
+msgstr ""
+
+#: wp-additional-shipping-costs.php:170
+msgid "Save Settings"
+msgstr ""

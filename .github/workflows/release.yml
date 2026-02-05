@@ -1,0 +1,42 @@
+name: Build and Release Plugin
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        tools: wp-cli
+
+    - name: Generate MO files
+      run: |
+        wp i18n make-mo languages/
+
+    - name: Build Zip
+      run: |
+        # Create a temporary directory for the build
+        mkdir build
+        # Copy files to the build directory (excluding hidden files and dev assets)
+        rsync -av --progress ./ build/wp-additional-shipping-costs --exclude .git --exclude .github --exclude build --exclude .gitignore --exclude .DS_Store
+        
+        # Enter build directory and zip the folder
+        cd build
+        zip -r ../wp-additional-shipping-costs.zip wp-additional-shipping-costs
+
+    - name: Upload Release Asset
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: wp-additional-shipping-costs.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

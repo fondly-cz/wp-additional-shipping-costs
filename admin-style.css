@@ -1,0 +1,24 @@
+.asc-matrix {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.asc-matrix th,
+.asc-matrix td {
+    padding: 12px;
+    border: 1px solid #ccd0d4;
+    text-align: center;
+}
+
+.asc-matrix th {
+    background: #f9f9f9;
+    font-weight: 600;
+}
+
+.asc-input {
+    width: 100px !important;
+    text-align: right;
+}
