@@ -1,0 +1,24 @@
+# Ignore dev dependencies
+/vendor
+!/vendor/yahnis-elsts/plugin-update-checker
+
+# Ignore build artifacts
+/build
+*.zip
+
+# Ignore IDE files
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore translation source files
+languages/*.mo
+# languages/*.pot
+
+# Ignore composer lock if you want (standard practice for plugins varies, but committing it is safer)
+# composer.lock

@@ -8,9 +8,15 @@ Author: fondly.cz<spoluprace@fondly.cz>
 Author URI: https://www.fondly.cz
 */
 
+namespace FondlyCz\AdditionalShippingCosts;
+
 if (!defined('ABSPATH')) {
     exit;
 }
+
+require 'vendor/autoload.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 class WP_Additional_Shipping_Costs
 {
@@ -22,6 +28,13 @@ class WP_Additional_Shipping_Costs
         add_action('admin_init', array($this, 'register_settings'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_styles'));
         add_action('plugins_loaded', array($this, 'load_plugin_textdomain'));
+
+        $myUpdateChecker = PucFactory::buildUpdateChecker(
+            'https://github.com/fondly-cz/wp-additional-shipping-costs',
+            __FILE__,
+            'wp-additional-shipping-costs'
+        );
+        $myUpdateChecker->getVcsApi()->enableReleaseAssets();
     }
 
     public function load_plugin_textdomain()
@@ -69,8 +82,8 @@ class WP_Additional_Shipping_Costs
         $tax_included = isset($settings['tax_included']) ? $settings['tax_included'] : false;
         $costs = isset($settings['costs']) ? $settings['costs'] : array();
 
-        $shipping_classes = WC()->shipping->get_shipping_classes();
-        $shipping_methods = WC()->shipping->get_shipping_methods();
+        $shipping_classes = \WC()->shipping->get_shipping_classes();
+        $shipping_methods = \WC()->shipping->get_shipping_methods();
 
         ?>
         <div class="wrap">
@@ -232,8 +245,8 @@ class WP_Additional_Shipping_Costs
                 // Logic for tax included inputs
                 if ($tax_included) {
                     // We assume standard shipping tax rates apply.
-                    $tax_rates = WC_Tax::get_shipping_tax_rates();
-                    $taxes = WC_Tax::calc_inclusive_tax($total_add_cost, $tax_rates);
+                    $tax_rates = \WC_Tax::get_shipping_tax_rates();
+                    $taxes = \WC_Tax::calc_inclusive_tax($total_add_cost, $tax_rates);
                     $net_add = $total_add_cost - array_sum($taxes);
                     $total_add_cost = $net_add;
                 }
@@ -243,7 +256,7 @@ class WP_Additional_Shipping_Costs
 
                 // Recalculate taxes on the new cost (WC calculates taxes on net cost)
                 if (!empty($rate->taxes)) {
-                    $new_taxes = WC_Tax::calc_shipping_tax($new_cost, WC_Tax::get_shipping_tax_rates());
+                    $new_taxes = \WC_Tax::calc_shipping_tax($new_cost, \WC_Tax::get_shipping_tax_rates());
                     $rate->set_taxes($new_taxes);
                 }
             }
