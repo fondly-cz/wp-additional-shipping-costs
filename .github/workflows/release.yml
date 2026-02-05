@@ -20,7 +20,10 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
-        tools: wp-cli
+        tools: wp-cli, composer:v2
+
+    - name: Install dependencies
+      run: composer install --no-dev --optimize-autoloader
 
     - name: Generate MO files
       run: |
