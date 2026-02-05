@@ -3,7 +3,7 @@
 Plugin Name: Additional Shipping Costs
 Plugin URI: https://github.com/fondly-cz/wp-additional-shipping-costs
 Description: Add specific extra costs per shipping class and method.
-Version: 1.0.1
+Version: 1.0.2
 Author: fondly.cz<spoluprace@fondly.cz>
 Author URI: https://www.fondly.cz
 */
